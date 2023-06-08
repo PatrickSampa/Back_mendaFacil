@@ -3,7 +3,7 @@ const express = require('express')
 
 const router = express.Router();
 const alunos = require('./src/modules/OrdemAlunos/index')
-const Users = require('./src/modules/Usuarios_supabase/index.js')
+const login = require('./src/modules/Usuarios_supabase/LoginUser.js');
 
 
 router.get('/alunos', (req, res) =>  res.send(alunos.getAll()));
@@ -21,10 +21,9 @@ router.post('/Adicionaralunos', (req, res) => {
 
 router.get('/delAluno', (req,res) => res.send(alunos.deletarAluno()))
 
+router.get('/login', (req,res) => res.send(login.getDataFromAPI()))
 
-router.post('/user', async (req, res) => {
-    return Users.verificarUserController.handle(req, res);
-}) 
+
 
 
 
