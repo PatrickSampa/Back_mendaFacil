@@ -21,7 +21,16 @@ router.post('/Adicionaralunos', (req, res) => {
 
 router.get('/delAluno', (req,res) => res.send(alunos.deletarAluno()))
 
-router.get('/login', (req,res) => res.send(login.getDataFromAPI()))
+router.get('/login', async (req,res) => {
+    const authLogin = await login.getDataFromAPI(req.body.id_user, req.body.senha_user);
+    console.log(authLogin);
+    if(authLogin == undefined){
+        res.send({});
+    }else{
+        res.send(authLogin);    
+    }
+    
+})
 
 
 

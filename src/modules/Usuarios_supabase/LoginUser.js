@@ -1,7 +1,7 @@
 const axios = require('axios');
 const validalogin = require('./validarLogin.js')
 
-async function getDataFromAPI() {
+async function getDataFromAPI(id_user, senha_user) {
     try {
       const config = {
         headers: {
@@ -11,11 +11,11 @@ async function getDataFromAPI() {
   
       const response = await axios.get('https://tysrqfndgfghiwtldlxa.supabase.co/rest/v1/alunos', config);
       const data = response.data;
-      const resp = await validalogin.VerificarUser(data)
+      const resp = await validalogin.VerificarUser(data,id_user, senha_user)
+      console.log('Dados da API:', id_user, senha_user);
       return resp
-      /* console.log('Dados da API:', data); */
     } catch (error) {
-      return null;
+      return error;
     }
   }
 
