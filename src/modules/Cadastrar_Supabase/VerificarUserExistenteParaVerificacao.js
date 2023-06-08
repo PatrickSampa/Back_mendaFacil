@@ -5,9 +5,9 @@ async function VerificarUserExistente(ArrayUser,id_user){
 /*     console.log(user)
     console.log("User: " + JSON.stringify(user)); */
      if(user != undefined){
-        return true
-     }else{
         return false
+     }else{
+        return true
      }
 
 

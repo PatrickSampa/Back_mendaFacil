@@ -14,8 +14,9 @@ async function InserirNovoAluno(id_user, senha_user){
     ];
     const AlunoJaCad = await getAlunos.UserExistente(id_user);
     console.log(AlunoJaCad)
-    if(AlunoJaCad == false){
+    if(AlunoJaCad){
         //Inserir Novo Aluno
+        console.log("CADASTRADO COM SUCESSO")
         const response = axios.post(URL, data, {headers});
         const inf = response.data;
         return data;
