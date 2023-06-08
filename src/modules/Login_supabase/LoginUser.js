@@ -11,6 +11,7 @@ async function getDataFromAPI(id_user, senha_user) {
   
       const response = await axios.get('https://tysrqfndgfghiwtldlxa.supabase.co/rest/v1/alunos', config);
       const data = response.data;
+      /* console.log(data) */
       const resp = await validalogin.VerificarUser(data,id_user, senha_user)
       console.log('Dados da API:', id_user, senha_user);
       return resp
