@@ -21,4 +21,4 @@ const PORT = process.env.API_PORT;
 //rotas
 app.use('/ifpa', router)
 
-app.listen(PORT, () => console.log("Visao runing in PORT " + PORT));
+app.listen(PORT, () => console.log("API runing in PORT " + PORT));
