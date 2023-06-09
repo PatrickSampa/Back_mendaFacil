@@ -13,7 +13,12 @@ const alunos = {};
 let seq;
 let seqDell;
 
+
 function adicionar(aluno){
+    console.log(aluno)
+    const matriculaId = aluno['nu_matri'];
+    const IdJaExistente = Object.values(alunos).some(objeto => objeto.nu_matri === matriculaId);
+    if(IdJaExistente) return {}
     seq = sequence.id;
     if(!aluno.id) aluno.id = seq;
     alunos[aluno.id] = aluno;
@@ -26,7 +31,7 @@ function getAluno(id){
 }
 
 function getAll(){
-    console.log(alunos)
+    console.log(Object.values(alunos))
     return Object.values(alunos);
    
 }
