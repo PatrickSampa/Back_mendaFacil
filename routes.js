@@ -1,6 +1,4 @@
-
 const express = require('express')
-
 const router = express.Router();
 const alunos = require('./src/modules/OrdemAlunos/index')
 const login = require('./src/modules/Login_supabase/LoginUser.js');
@@ -34,7 +32,7 @@ router.get('/login', async (req,res) => {
 })
 
 router.post('/CadastraAluno', async (req,res) => {
-    const Cad = await Cadastrar.InserirNovoAluno(req.body.id_user, req.body.senha_user);
+    const Cad = await Cadastrar.InserirNovoAluno(req.body.id_user, req.body.senha_user, req.body.nomeUser);
     //console.log("fora: " + Cad);
     res.send(Cad)
     
