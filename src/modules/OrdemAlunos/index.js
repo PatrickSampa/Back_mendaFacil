@@ -1,15 +1,16 @@
 const sequence = {
     _id: 1,
     get id() {return this._id++},
-
+    reset() { this._id = 1 }
 }
 
 const sequenceDel = {
     _id: 1,
     get id() {return this._id++},
+    reset() { this._id = 1 }
 }
 
-const alunos = {};
+let alunos = {};
 let seq;
 let seqDell;
 
@@ -25,6 +26,16 @@ function adicionar(aluno){
     //let idRetorno = aluno.id;
     return aluno;
 }
+
+
+function resetar(){
+    alunos = {};
+    sequence.reset();
+    sequenceDel.reset();
+    return alunos
+}
+
+
 
 function getAluno(id){
     return alunos[id] || {}
@@ -66,4 +77,4 @@ function deletarAluno(){
     
 }
 
-module.exports = { adicionar, getAluno, getAll, deletarAluno}
+module.exports = { adicionar, getAluno, getAll, deletarAluno, resetar}
