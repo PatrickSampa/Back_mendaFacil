@@ -16,7 +16,7 @@ app.use(express.json());
 
 dotenv.config();
 
-const PORT = process.env.API_PORT;
+const PORT = process.env.API_PORT || 3001;
 
 //rotas
 app.use('/ifpa', router)
